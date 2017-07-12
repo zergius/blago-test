@@ -130,6 +130,20 @@ a:hover, a:focus {
 #progress.visible {
 	display:block;
 }
+#noscript-warning {
+	display:block;
+	width:90vw;
+	margin:2em auto;
+	padding:1em;
+	border-radius:2px;
+	max-width:1180px;
+	background:#e56c67;
+	color:#fff;
+	font-size:1.5em;
+	line-height:1.4em;
+	font-weight:600;
+	box-sizing:border-box;
+}
 .screen {
 	display:none;
 	width:1180px;
@@ -359,6 +373,7 @@ p.img-credit {
 	#head-menu > div, #b-footer > div { width:98vw; padding:0 1vw; }
 	#logo { left:1vw; width:30vw; height:6vw; }
 	#main-title-holder { width:98vw; padding:0 1vw 2em; }
+	#main-title { width:100%; }
 	#logo-holder { width:98vw; padding-bottom:.3em; }
 	#progress { width:98vw; margin-left:auto; margin-right:auto; }
 	.screen { width:98vw; padding-left:1vw; padding-right:1vw; }
