@@ -58,8 +58,10 @@ a:hover, a:focus {
 	width:100%;
 	margin:0;
 	padding:0 0 100px;
+	height:36vw;
+	box-sizing:border-box;
 }
-#main-title-holder::before {
+/*#main-title-holder::before {
 	content:"";
 	display:block;
 	width:100%;
@@ -69,7 +71,7 @@ a:hover, a:focus {
 	left:0;
 	background:#ddd url(../img/cover.png) 50% 100% / contain no-repeat;
 	z-index:1;
-}
+}*/
 #logo-holder {
 	display:block;
 	position:relative;
@@ -83,7 +85,7 @@ a:hover, a:focus {
 	width:180px;
 	height:24px;
 	background:url(../img/ekonomika.svg) 0 0 / contain no-repeat;
-	z-index:2
+	z-index:4;
 }
 #main-title {
 	position:relative;
@@ -96,6 +98,54 @@ a:hover, a:focus {
 	margin-left:auto;
 	margin-right:auto;
 	text-shadow:0 0 3px #bbb;
+}
+#header-back {
+	display:block;
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background-color:#ccc;
+	background-position:top center;
+	background-size:cover;
+	z-index:5;
+}
+#header-back.s0 {
+	z-index:1;
+}
+#header-back.s1 {
+	background-image:url(../img/q1.jpg);
+}
+#header-back.s2 {
+	background-image:url(../img/q2.jpg);
+}
+#header-back.s3 {
+	background-image:url(../img/q3.jpg);
+}
+#header-back.s4 {
+	background-image:url(../img/q4.jpg);
+}
+#header-back.s5 {
+	background-image:url(../img/q5.jpg);
+}
+#header-back.s6 {
+	background-image:url(../img/q6.jpg);
+}
+#header-back.s7 {
+	background-image:url(../img/q7.jpg);
+}
+#header-back.s8 {
+	background-image:url(../img/q8.jpg);
+}
+#header-back.s9 {
+	background-image:url(../img/q9.jpg);
+}
+#header-back.s10 {
+	background-image:url(../img/q10.jpg);
+}
+#header-back.answer {
+	z-index:1;
 }
 .step-indicator {
 	margin-top:.75em;
@@ -112,7 +162,7 @@ a:hover, a:focus {
 #progress {
 	position:relative;
 	width:1180px;
-	margin:5px auto 0;
+	margin:15px auto 0;
 	height:5px;
 	border:1px solid #eee;
 	border-radius:2px;
@@ -256,7 +306,7 @@ a:hover, a:focus {
 	background:transparent;
 	padding:0;
 	margin:15px 30px;
-	border:1px solid #eee;
+	border:1px solid rgba(29, 161, 242, .5);
 	border-radius:2px;
 	display:block;
 	vertical-align:top;

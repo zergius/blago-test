@@ -12,6 +12,7 @@
 			}
 			var stepId = "step-" + step;
 			showProgress(step);
+			changeBack(step);
 			document.getElementById(stepId).className += " visible";
 			//window.scrollTo(0, 134);
 			goHeader();
@@ -26,9 +27,13 @@
 				progressEl.className += " visible";
 			}
 		};
+		var changeBack = function(step) {
+			document.getElementById('header-back').className = 's' + step;
+		};
 		var goHeader = function() {
-			var headerH = document.getElementById('main-title-holder').clientHeight;
-			window.scrollTo(0, headerH);
+			/* var headerH = document.getElementById('main-title-holder').clientHeight;
+			window.scrollTo(0, headerH); */
+			window.scrollTo(0, 0);
 		};
 		var calculateResult = function() {
 			var resultVariant = '';
