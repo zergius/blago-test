@@ -58,7 +58,7 @@ a:hover, a:focus {
 	width:100%;
 	margin:0;
 	padding:0 0 100px;
-	height:36vw;
+	min-height:36vw;
 	box-sizing:border-box;
 }
 /*#main-title-holder::before {
@@ -422,7 +422,7 @@ p.img-credit {
 	html, body { font-size:12px; }
 	#head-menu > div, #b-footer > div { width:98vw; padding:0 1vw; }
 	#logo { left:1vw; width:30vw; height:6vw; }
-	#main-title-holder { width:98vw; padding:0 1vw 2em; }
+	#main-title-holder { width:100%; padding:0 1vw 2em; }
 	#main-title { width:100%; }
 	#logo-holder { width:98vw; padding-bottom:.3em; }
 	#progress { width:98vw; margin-left:auto; margin-right:auto; }
@@ -454,6 +454,6 @@ p.img-credit {
 	#step-0-share p > span, #result-share p > span { display:block; margin-bottom:.7em; margin-top:.7em; margin-right:0; }
 	.actions, .actions > div { display:block; position:relative; }
 	.actions > div:first-child { width:98vw; margin:0 auto; }
-	.screen p.btn { width:98vw; padding:.5em 0; }
+	.screen p.btn, #result .btn { width:98vw; padding:.5em 0; margin-left:auto; margin-right:auto; }
 	.actions a.sn:last-child { margin-right:0; }
 }
