@@ -365,6 +365,15 @@ a:hover, a:focus {
 #result-text {
 	position:relative;
 }
+#result-text a {
+	text-decoration:underline;
+}
+#result-text ul {
+	margin:.5em 0 1.3em;
+}
+#result-text li {
+	margin-bottom:.2em;
+}
 #result-img {
 	position:relative;
 	float:left;

@@ -58,7 +58,8 @@
 				resultVariant = answersByFrequency[0][0];
 			}
 			else {
-				resultVariant = answersByFrequency[0][0];
+				// resultVariant = answersByFrequency[0][0];
+				resultVariant = 'M';
 			}
 			result = resultVariant;
 		};
