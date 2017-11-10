@@ -5,34 +5,21 @@
 		var currentStep = 0;
 		var answers = [];
 		var result = '';
+		var currentOption = '';
+		var mQuestion = false;
+		var mScrollpos = 0;
 
 		var changeStep = function(step) {
 			for(var i = 0; i < screens.length; i++) {
 				screens[i].className = "screen";
 			}
 			var stepId = "step-" + step;
-			showProgress(step);
-			changeBack(step);
 			document.getElementById(stepId).className += " visible";
-			//window.scrollTo(0, 134);
+			document.body.className = 'step ' + stepId;
 			goHeader();
 			currentStep = step;
 		};
-		var showProgress = function(step){
-			var progressEl = document.getElementById('progress');
-			if(step > 0) {
-				if(step > 1) {
-					progressEl.children[0].style.width = ((step - 1) * 10) + '%';
-				}
-				progressEl.className += " visible";
-			}
-		};
-		var changeBack = function(step) {
-			document.getElementById('header-back').className = 's' + step;
-		};
 		var goHeader = function() {
-			/* var headerH = document.getElementById('main-title-holder').clientHeight;
-			window.scrollTo(0, headerH); */
 			window.scrollTo(0, 0);
 		};
 		var calculateResult = function() {
@@ -51,14 +38,11 @@
 			for(var variant in numberAnswers) {
 				answersByFrequency.push([variant, numberAnswers[variant]]);
 			}
-			//console.log(answersByFrequency);
 			answersByFrequency.sort(function(a, b) {return b[1] - a[1]});
-			//console.log(answersByFrequency);
 			if(answersByFrequency[0][1] > 2 || answersByFrequency[0][1] == 2 && answersByFrequency[1][1] < 2) {
 				resultVariant = answersByFrequency[0][0];
 			}
 			else {
-				// resultVariant = answersByFrequency[0][0];
 				resultVariant = 'M';
 			}
 			result = resultVariant;
@@ -71,8 +55,10 @@
 			}
 		};
 
-		var processStep = function(option) {
-			answers.push(option);
+		var processStep = function() {
+			answers.push(currentOption);
+			currentOption = "";
+			console.log(answers);
 			if(currentStep < 10) {
 				var nextStep = currentStep + 1;
 				changeStep(nextStep);
@@ -83,18 +69,66 @@
 			}
 		};
 
+		var minifyQuestion = function(){
+			var qEl = document.querySelector('.screen.visible .quest-head');
+			var questElementHolder = document.querySelector('.screen.visible .quest-head-holder');
+			var aHolder = document.querySelector('.screen.visible .variants-holder');
+			var headerH = document.getElementById('main-title-holder');
+			var qElSize = {};
+			if(qEl){
+				if(!mQuestion && qEl.getBoundingClientRect().bottom < headerH.getBoundingClientRect().height){
+					mQuestion = true;
+					mScrollpos = window.scrollY;
+					if(questElementHolder.className.indexOf("min") == -1){
+						qElSize = questElementHolder.getBoundingClientRect();
+						aHolder.style.marginTop = (window.scrollY + qElSize.top + qElSize.height) + 'px';
+						document.querySelector('.screen.visible .quest-head-holder').className += " min";
+					}
+				}
+				if(mQuestion && window.scrollY < mScrollpos - 32){
+					mQuestion = false;
+					mScrollpos = 0;
+					aHolder.style.marginTop = 0;
+					questElementHolder.className = questElementHolder.className.replace(" min", "");
+				}
+			}
+		};
+
 		document.getElementById("start-btn").addEventListener("click", function(){
+			changeStep(1);
+		}, false);
+		document.getElementById("start-btn-top").addEventListener("click", function(){
 			changeStep(1);
 		}, false);
 
 		var stepOptions = document.getElementsByClassName("step-option");
 		for (var i = 0; i < stepOptions.length; i++) {
 			stepOptions[i].addEventListener("click", function(){
-				processStep(this.getAttribute("data-option"));
+				currentOption = this.getAttribute("data-option");
+				var options = document.querySelector('.screen.visible .option-holder.active');
+				if(options){
+					options.className = options.className.replace(" active", "");
+				}
+				this.parentNode.className += ' active';
+				if(document.querySelector('.screen.visible .submit').className.indexOf("active") == -1){
+					document.querySelector('.screen.visible .submit').className += " active";
+				}
 			}, false);
 		}
+		
+		var submits = document.getElementsByClassName('submit');
+		for (var i = 0; i < submits.length; i++) {
+			submits[i].addEventListener("click", function(){
+				processStep();
+			});
+		}
 
-		document.getElementById("step-0").className += " visible";
+		window.addEventListener('scroll', function(e){
+			setTimeout(minifyQuestion, 20);
+		});
+
+
+		changeStep(0);
 	});
 
 	window.onbeforeunload = function(){
