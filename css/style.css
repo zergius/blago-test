@@ -151,6 +151,9 @@ a:hover, a:focus {
 	background:#fff9ca;
 	transition:background .15s ease-in-out;
 }
+#step-0-top-start {
+	display:none;
+}
 #gotoStart-btn {
 	padding:0;
 	margin-top:2.4em;
@@ -569,6 +572,7 @@ p.btn-teaser span {
 	#main-title { font-size:6.5vw; }
 	#result #main-title { margin-top:2.4em; margin-bottom:1.8em; }
 	#container { padding-bottom:3.4em; }
+	#step-0-top-start { display:block; }
 	.result #container { padding-bottom:1.4em; }
 	#step-0-inner #main-title { margin-top:2.4em; margin-bottom:1.6em; }
 	#step-0-inner #step-0-top-start p { font-size:5.5vw; padding:.3em 1vw; line-height:1.67em; margin:0; font-weight:bold; }
