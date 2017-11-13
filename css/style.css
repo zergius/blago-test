@@ -405,7 +405,7 @@ p.btn-teaser span {
 .quest-head-holder.min .quest-head-inner {
 	width:1286px;
 	margin:0 auto;
-	overflow:auto;
+	/* overflow:auto; */
 }
 .quest-head-holder.min .quest-head h2 {
 	display:none;
@@ -418,7 +418,7 @@ p.btn-teaser span {
 	width:290px;
 	box-sizing:border-box;
 	line-height:100%;
-	transition:width .5s ease-in-out;
+	/* transition:width .5s ease-in-out; */
 }
 .quest-head-holder.min .action-holder {
 	float:right;
