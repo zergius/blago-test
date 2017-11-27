@@ -630,6 +630,7 @@ p.btn-teaser span {
 	#step-0-inner p.btn-teaser { font-size:.9em; }
 	.step-indicator { font-size:4.5em; }
 	.quest-head h2 { font-size:1.1em; }
+	.action-holder .progress .pos { background-position:-3.4vw -3.1vw; }
 	.action-holder .submit.active { font-size:1.4em; width:4.5em; }
 	.option-holder { font-size:.9em; }
 	.step-text::before { font-size:2em; }
