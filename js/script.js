@@ -94,12 +94,16 @@
 			}
 		};
 
-		document.getElementById("start-btn").addEventListener("click", function(){
-			changeStep(1);
-		}, false);
-		document.getElementById("start-btn-top").addEventListener("click", function(){
-			changeStep(1);
-		}, false);
+		if(document.getElementById("start-btn")){
+			document.getElementById("start-btn").addEventListener("click", function(){
+				changeStep(1);
+			}, false);
+		}
+		if(document.getElementById("start-btn-top")){
+			document.getElementById("start-btn-top").addEventListener("click", function(){
+				changeStep(1);
+			}, false);
+		}
 
 		var stepOptions = document.getElementsByClassName("step-option");
 		for (var i = 0; i < stepOptions.length; i++) {
@@ -128,7 +132,11 @@
 		});
 
 
-		changeStep(0);
+		if(document.getElementById("container").className.indexOf("result") == -1 && document.body.className.indexOf("result") == -1){
+			changeStep(0);
+		}
+		document.querySelector('.sn-fb').setAttribute('href', 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.origin + location.pathname));
+		document.querySelector('.sn-tw').setAttribute('href', 'https://twitter.com/share?url=' + encodeURIComponent(location.origin + location.pathname));
 	});
 
 	window.onbeforeunload = function(){
