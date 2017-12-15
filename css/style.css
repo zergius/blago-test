@@ -96,7 +96,7 @@ a:hover, a:focus {
 #noscript-warning {
 	display:block;
 	width:795px;
-	margin:0 auto;
+	margin:5em auto;
 	box-sizing:border-box;
 	padding:1em;
 	font-size:1.5em;
